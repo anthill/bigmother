@@ -1,5 +1,5 @@
 {
-  "name": "sensorver",
+  "name": "bigmother",
   "version": "0.0.1",
   "description": "A webserver to monitor a sensor",
   "main": "index.js",
