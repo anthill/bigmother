@@ -4,6 +4,12 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require('fs');
 var path = require('path');
+
+var servo = require("odroid-servo");
+
+servo.init();
+servo.center(2); // center the servo 2 (50% postion)
+
  
 var spawn = require('child_process').spawn;
 var proc;
@@ -35,6 +41,10 @@ io.on('connection', function(socket) {
  
   socket.on('start-stream', function() {
     startStreaming(io);
+  });
+
+  socket.on('move', function(value) {
+    servo.move(2, value);
   });
  
 });
